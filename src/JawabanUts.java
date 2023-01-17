@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class JawabanUts {
     int prodi = 3;
     static int totalMahasiswa = 1050;
-    public static String[] TI = new String[500];
+    static String[] TI = new String[500];
     public static String[] DKV = new String[300];
     public static String[] TK = new String[250];
 
@@ -46,20 +46,20 @@ public class JawabanUts {
         }
     }
 
-    public static void simpanMahasiswa(int angkaRandom, String prodi) {
-        switch (angkaRandom){
-            case 1:
-                CheckIndexArray (TI,prodi);
-                System.out.println("Anda masuk TI");
-                printInfoMAhasiswa();
-                break;
+    public static void simpanMahasiswa( String nama, String prodi) {
+        switch (prodi) {
+            if (nama == null)
+                CheckIndexArray(TI, prodi);
+            System.out.println("Anda masuk TI");
+            printInfoMAhasiswa();
+            break;
             case 2:
-                CheckIndexArray(DKV,prodi);
+                CheckIndexArray(DKV, prodi);
                 System.out.println("Anda masuk DKV");
                 printInfoMAhasiswa();
                 break;
             case 3:
-                CheckIndexArray(TK,prodi);
+                CheckIndexArray(TK, prodi);
                 System.out.println("Anda masuk TK");
                 printInfoMAhasiswa();
                 break;
@@ -71,14 +71,14 @@ public class JawabanUts {
             System.out.print("Nama Mahasiswa :");
             String namaMahasiswa = inputData.nextLine();
             System.out.print("Prodi :");
-            String Prodi = inputData.nextLine();
+
             if (namaMahasiswa.isBlank()){
                 System.out.println("Nama Mahasiswa Wajib Di Isi");
                 inputMahasiswa();
             }else {
-                Random hasilRandom = new Random();
-                int JenisRandom = hasilRandom.nextInt(3)+1;
-                simpanMahasiswa(JenisRandom,namaMahasiswa);
+                String namaProdi =inputData.nextLine();
+                String Prodi = namaProdi.length();
+                simpanMahasiswa(Prodi,namaMahasiswa);
             }
         }
     }
